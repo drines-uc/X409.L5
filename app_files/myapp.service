@@ -1,0 +1,10 @@
+[Unit]
+Description=Basic Flask Application
+After=network-online.target
+Wants=network-online.target systemd-networkd-wait-online.service
+
+[Service]
+ExecStart=flask --app /home/ubuntu/app_files/app run --host=0.0.0.0
+
+[Install]
+WantedBy=multi-user.target
